@@ -579,9 +579,9 @@ for n in range(0,len(combo_mix)):
                     vault[pair]['position'][i] = vault[pair]['position'][i-1]
                     vault[pair]['side'][i] = vault[pair]['side'][i-1]
                     vault[pair]['collateral'][i] = vault[pair]['collateral'][i-1] #nothing changed on collateral
-                    vault[pair]['trading_fee_in'][i] = 0 #no more new trading 
-                    vault[pair]['days_elapsed'][i] = vault[pair]['days_elapsed'][i-1]
+                    vault[pair]['trading_fee_in'][i] = 0 #no more new trading   
                     vault[pair]['Unrealized_PnL'][i] = calcUnrealized_perp(vault[pair],i)
+                    vault[pair]['days_elapsed'][i] = vault[pair]['days_elapsed'][i-1]
                     #nothing changesa AMM and vault afterwards 
                 #add more if sign is the same and still > buffer (same as open new position)
                 elif (vault[pair]['Unrealized_PnL'][i]+vault[pair]['side'][i-1]*vault[pair]['expected_return'][i]/100/365*30*vault[pair]['position'][i])>0 and np.sign(vault[pair]['expected_return'][i]) == np.sign(vault[pair]['expected_return'][i-1]):
