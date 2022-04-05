@@ -131,7 +131,7 @@ def leveragedCarryVault(pair,i):
     (2b) take profit levl = 50%, if (unrealized pnl + expeced return next 1 day) / collateral > 50%
     """
             #close to cut loss (if my unrealized loss already overpasses my 30days of expected returns) to avoid being liquidated OR
-            #close to take profit if my daily return (over period of holding) > 70%  
+            #close to take profit if my daily return (over period of holding) > 50%  
             (vault[pair]['Unrealized_PnL'][i]+vault[pair]['side'][i-1]*vault[pair]['expected_return'][i]/100/365*30*vault[pair]['position'][i]) <0 or\
                 (vault[pair]['Unrealized_PnL'][i]/vault[pair]['days_elapsed'][i]+vault[pair]['expected_return'][i]/100/365*vault[pair]['position'][i])/vault[pair]['collateral'][i]>50:
                 #make sure I would not close the full position that slippage would be too large
